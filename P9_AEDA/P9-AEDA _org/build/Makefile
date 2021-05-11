@@ -10,12 +10,12 @@ _OBJ = main.o
 # _INCLUDE = lista.hpp fdAleatoria.hpp fdModulo.hpp funcionDispersion.hpp tablaHash.hpp
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
 
-all: ordenacion
+all: ArbolBB
 
 $(ODIR)/main.o: $(ODIR)/main.cpp
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-ordenacion: $(OBJ)
+ArbolBB: $(OBJ)
 	$(CC)  -o $@ $^ $(CFLAGS)
 
 .PHONY: clean
@@ -25,4 +25,4 @@ clean:
 
 run: clean all
 	clear
-	./ordenacion
+	./ArbolBB

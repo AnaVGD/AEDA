@@ -6,8 +6,8 @@
 // Computablidad y Algoritmia
 // Autor: Ana Virginia Giambona Díaz
 // Correo: alu0101322650@ull.edu.es
-// Fecha: 21/04/2021
-// Práctica: Metodos de ordenacion
+// Fecha: 11/05/2021
+// Práctica: Arbol Binario de busqueda
 // 
 ////////////////////////////////////////////////////////////////////////////
 

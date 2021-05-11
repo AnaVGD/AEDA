@@ -6,8 +6,8 @@
 // Computablidad y Algoritmia
 // Autor: Ana Virginia Giambona Díaz
 // Correo: alu0101322650@ull.edu.es
-// Fecha: 21/04/2021
-// Práctica: Metodos de ordenacion
+// Fecha: 11/05/2021
+// Práctica: Arbol Binario de busqueda
 // 
 ////////////////////////////////////////////////////////////////////////////
 
@@ -29,7 +29,6 @@ int main(){
   int fin = 0;
   
   while (fin == 0) {
-   
     switch (menu()) {
       case 1:
         std::cout << "Introduzca la cable a insertar" << std::endl;
@@ -37,7 +36,7 @@ int main(){
         std::cout << std::endl;
         std::cout << "Insertar: " << clave << std::endl;
         tree.Insertar(clave);
-        tree.imprimir2();
+        tree.ImprimirNodo();
         break;
       case 2:
         std::cout << "Introduzca la clave a buscar" << std::endl;
@@ -46,7 +45,7 @@ int main(){
         std::cout << "Buscar: " << clave << std::endl;
         tree.BuscarPrint(clave);
         std::cout << std::endl;
-        tree.imprimir2();
+        tree.ImprimirNodo();
         break;
       case 0:
         fin = 1;
@@ -57,7 +56,7 @@ int main(){
     }
   }
 }
-
+// Menu 
 int menu() {
   std::cout << std::endl;
   std::cout << std::endl;

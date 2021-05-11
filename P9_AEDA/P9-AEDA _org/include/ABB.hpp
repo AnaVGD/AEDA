@@ -6,8 +6,8 @@
 // Computablidad y Algoritmia
 // Autor: Ana Virginia Giambona Díaz
 // Correo: alu0101322650@ull.edu.es
-// Fecha: 21/04/2021
-// Práctica: Metodos de ordenacion
+// Fecha: 11/05/2021
+// Práctica: Arbol Binario de busqueda
 // 
 ////////////////////////////////////////////////////////////////////////////
 
@@ -20,11 +20,12 @@
 #include "nodoB.hpp"
 #include "AB.hpp"
 
+// Hereda la clase AB de la pravtica pasada
 template<class Clave>
 class ABB : public AB<Clave> {
-private:
+ private:
   // nodoB<Clave>* raiz;  // nodoB??
-public:
+ public:
   ABB() {this->raiz = NULL;}
   ~ABB() {this->Podar(this->raiz);}
 
@@ -36,11 +37,15 @@ public:
   void InsertarRama(nodoB<Clave>* &nodo, const Clave& clave_dada);
 };
 
+// Recibe la clave a buscar y devuelve un bool si la encontrado o no en el nodo
+// la funcion se encarga de llamar a la funcion BuscarRama
 template<class Clave>
 nodoB<Clave>* ABB<Clave>::Buscar(const Clave& clave_dada) const{
   return BuscarRama(this->raiz, clave_dada);
 }
 
+// Recibe la clave a buscar y devuelve un bool si la encontrado o no en el nodo,
+// Busca a partir del recorrido por niveles
 template<class Clave>
 nodoB<Clave>* ABB<Clave>::BuscarRama(nodoB<Clave>* nodo, const Clave& clave_dada) const {
   if (nodo == NULL)
@@ -52,11 +57,14 @@ nodoB<Clave>* ABB<Clave>::BuscarRama(nodoB<Clave>* nodo, const Clave& clave_dada
   return BuscarRama(nodo->dcho, clave_dada);
 }
 
+// Funcion insertar llama a la funcion insertarRama, ricibe por parametros la
+// clave a insertar
 template<class Clave>
 void ABB<Clave>::Insertar(const Clave& clave_dada) {
   InsertarRama(this->raiz, clave_dada);
 }
 
+// Recibe por parametros el nodo y la clave a insertar
 template<class Clave>
 void ABB<Clave>::InsertarRama(nodoB<Clave>* &nodo, const Clave& clave_dada) {
   if (nodo == NULL)
