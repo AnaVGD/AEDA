@@ -127,6 +127,7 @@ const int AB<Clave>::TamRama(nodoB<Clave>* nodo) const {
 // insertar
 template<class Clave>
 void AB<Clave>::Insertar(const Clave& dato) {
+  // std::cout << "E" << std::endl;
   if (raiz == NULL)
     raiz = new nodoB<Clave>(dato, NULL, NULL);
   else InsertaRama(dato, raiz);

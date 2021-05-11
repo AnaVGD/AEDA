@@ -61,6 +61,7 @@ nodoB<Clave>* ABB<Clave>::BuscarRama(nodoB<Clave>* nodo, const Clave& clave_dada
 // clave a insertar
 template<class Clave>
 void ABB<Clave>::Insertar(const Clave& clave_dada) {
+  // std::cout << "B" << std::endl;
   InsertarRama(this->raiz, clave_dada);
 }
 
