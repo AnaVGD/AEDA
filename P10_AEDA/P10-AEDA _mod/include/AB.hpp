@@ -44,7 +44,14 @@ public:
 
   virtual void Insertar(const Clave& clave_dada);
   virtual void InsertaRama(const Clave& dato, nodoB<Clave>* nodo);
+
+  int Altura() const;
+  int AltN(const nodoB<Clave>* nodo) const;
 };
+
+
+
+
 
 template<class Clave>
 void AB<Clave>::Podar(nodoB<Clave>* &nodo) {
@@ -168,7 +175,8 @@ void AB<Clave>::Imprimir(nodoB<Clave> *Raiz) const {
     nivel = nodoNivel.second;
     Q.pop();
     if(nivel > Nivel_actual) {
-      Nivel_actual = nivel; //Incremento de nivel
+      //Incremento de nivel
+      Nivel_actual = nivel; 
       std::cout << "\nNivel " << Nivel_actual << ": ";
     } else if (Nivel_actual == 0) {
       std::cout << "Nivel 0: ";
@@ -182,3 +190,26 @@ void AB<Clave>::Imprimir(nodoB<Clave> *Raiz) const {
     }
   }
 }
+
+
+///////////MODIFICACION///////////
+template<class Clave>
+int AB<Clave>::Altura() const {
+  return AltN(raiz);
+}
+
+template<class Clave>
+int AB<Clave>::AltN(const nodoB<Clave>* nodo) const {
+  if (nodo == NULL)
+    return 0 ;
+  int alt_i = AltN(nodo->izdo);
+  int alt_d = AltN(nodo->dcho);
+  if (alt_d > alt_i)
+    return ++alt_d;
+  else
+    return ++alt_i;
+}
+
+
+
+
