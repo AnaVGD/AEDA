@@ -16,6 +16,7 @@
 #include "AB.hpp"
 
 #include <iostream>
+#include <stdlib.h>
 
 using Clave = int;
 
@@ -65,12 +66,17 @@ int main(){
     while (fin == 0) {
       switch (menu()) {
         case 1:
-          std::cout << "Introduzca la cable a insertar" << std::endl;
-          std::cin >> clave;
-          std::cout << std::endl;
-          std::cout << "Insertar: " << clave << std::endl;
-          tree.Insertar(clave);
+          // std::cout << "Introduzca la cable a insertar" << std::endl;
+          // std::cin >> clave;
+          // std::cout << std::endl;
+          for (int i = 0; i < 10000; i++){
+            std::srand(i);
+            clave = std::rand();
+            // std::cout << "Insertar: " << clave << std::endl;
+            tree.Insertar(clave);
+          }
           tree.ImprimirNodo();
+          std::cout << "\n\nAltura: " << tree.Altura() + 1 << std::endl;
           break;
         case 2:
           std::cout << "Introduzca la clave a buscar" << std::endl;
@@ -103,9 +109,18 @@ int menu() {
   std::cout << "-------------------------------------------------" << std::endl;
   std::cout << "Seleccione las siguientes opciones para el arbol:" << std::endl;
   std::cout << "[0] Salir\n[1] Insertar Clave\n[2] Buscar Clave" << std::endl;
+  std::cout << "Introduzca 1 para insertar 10000 numeros en el nodo antes de buscar" << std::endl;
   std::cout << "-------------------------------------------------" << std::endl;
   std::cout << std::endl;
   int opciones;
   std::cin >> opciones;
   return opciones;
 }
+
+// int Aleatorio() {
+//   int num;
+//   for (int i = 0; i < 10.000; i++){
+//     std::srand(i);
+//     num = std::rand()
+//   }
+// }
